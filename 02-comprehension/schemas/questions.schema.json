@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "questions.yaml",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "target_member", "question", "answer", "key_points", "type", "depends_on_facts"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^q[0-9]{2,}$" },
+      "target_member": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "question": { "type": "string", "minLength": 1 },
+      "answer": { "type": "string", "minLength": 1 },
+      "key_points": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "type": "string", "minLength": 1 }
+      },
+      "type": { "type": "string", "enum": ["direct", "trap"] },
+      "depends_on_facts": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "type": "string", "pattern": "^f[0-9]{2,}$" }
+      }
+    }
+  }
+}

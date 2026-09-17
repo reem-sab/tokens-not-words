@@ -1,0 +1,12 @@
+- fact_id: f01
+  note: "Timeout is 15 seconds on Team, between the lower and top tiers."
+- fact_id: f02
+  note: "Retries are on by default on Team; the lowest tier has them off."
+- fact_id: f03
+  note: "max_retries defaults to 5 on Team, different from the other tiers."
+- fact_id: f06
+  note: "Team uses the X-Tarpon-Signature header (the top tier uses a different header)."
+- fact_id: f07
+  note: "Team has a dead-letter queue available but off by default; one tier has none and one has it on."
+- fact_id: f08
+  note: "Maximum payload is 1 MB on Team, larger than Starter and smaller than Enterprise."

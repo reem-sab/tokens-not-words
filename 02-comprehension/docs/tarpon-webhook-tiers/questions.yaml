@@ -1,0 +1,95 @@
+- id: q01
+  target_member: tarpon-team
+  question: "In Tarpon Team, what is the default value of max_retries?"
+  answer: "5."
+  key_points: ["5", "Team"]
+  type: direct
+  depends_on_facts: [f03]
+
+- id: q02
+  target_member: tarpon-starter
+  question: "On Tarpon Starter, where does a message go after all delivery attempts fail?"
+  answer: "It is dropped. Starter has no dead-letter queue."
+  key_points: ["dropped", "no dead-letter queue"]
+  type: trap
+  depends_on_facts: [f07]
+
+- id: q03
+  target_member: tarpon-enterprise
+  question: "Which HTTP header carries the webhook signature on Tarpon Enterprise?"
+  answer: "X-Tarpon-Signature-V2."
+  key_points: ["X-Tarpon-Signature-V2"]
+  type: direct
+  depends_on_facts: [f06]
+
+- id: q04
+  target_member: tarpon-team
+  question: "On Tarpon Team, are delivery retries on by default?"
+  answer: "Yes. Retries are enabled by default on Team."
+  key_points: ["yes", "enabled by default"]
+  type: direct
+  depends_on_facts: [f02]
+
+- id: q05
+  target_member: tarpon-starter
+  question: "On Tarpon Starter, with no configuration changes, will a failed webhook be retried?"
+  answer: "No. Retries are disabled by default on Starter."
+  key_points: ["no", "disabled by default"]
+  type: trap
+  depends_on_facts: [f02]
+
+- id: q06
+  target_member: tarpon-enterprise
+  question: "On Tarpon Enterprise, is the dead-letter queue on by default?"
+  answer: "Yes. It is enabled by default on Enterprise."
+  key_points: ["yes", "enabled by default"]
+  type: direct
+  depends_on_facts: [f07]
+
+- id: q07
+  target_member: tarpon-team
+  question: "What is the default per-attempt timeout on Tarpon Team?"
+  answer: "15 seconds."
+  key_points: ["15 seconds"]
+  type: direct
+  depends_on_facts: [f01]
+
+- id: q08
+  target_member: tarpon-enterprise
+  question: "What is the default max_retries on Tarpon Enterprise?"
+  answer: "10."
+  key_points: ["10", "Enterprise"]
+  type: direct
+  depends_on_facts: [f03]
+
+- id: q09
+  target_member: tarpon-starter
+  question: "What is the maximum webhook payload size on Tarpon Starter?"
+  answer: "256 KB."
+  key_points: ["256 KB"]
+  type: direct
+  depends_on_facts: [f08]
+
+- id: q10
+  target_member: tarpon-team
+  question: "On Tarpon Team, if you have not changed any settings, what happens to a message after retries are exhausted?"
+  answer: "It is dropped, because the dead-letter queue is available but off by default on Team."
+  key_points: ["dropped", "dead-letter queue off by default"]
+  type: trap
+  depends_on_facts: [f07]
+
+- id: q11
+  target_member: tarpon-enterprise
+  question: "On Tarpon Enterprise, is an HTTP 404 response retried?"
+  answer: "No. Only 5xx responses and timeouts are retried; a 4xx is never retried."
+  key_points: ["no", "only 5xx and timeouts", "4xx never retried"]
+  type: direct
+  depends_on_facts: [f05]
+
+- id: q12
+  target_member: tarpon-starter
+  question: "On Tarpon Starter, backoff between retries starts at how many seconds?"
+  answer: "2 seconds."
+  key_points: ["2 seconds"]
+  type: direct
+  depends_on_facts: [f04]

@@ -20,7 +20,7 @@ See [`01-cost/`](01-cost/).
 **Part 2: Comprehension.** If the facts stay the same and only the writing
 changes, do a model's answers get more accurate? An open test that rewrites the
 same document for clarity and measures whether the model understands it better.
-In progress. It will live under `02-comprehension/`.
+In progress, under [`02-comprehension/`](02-comprehension/).
 
 **Later parts.** Findability (can a retrieval system even surface your writing?)
 and actionability (can an agent follow it?). Planned, not started.

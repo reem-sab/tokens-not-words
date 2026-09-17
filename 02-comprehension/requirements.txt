@@ -1,0 +1,13 @@
+# Part 2 dependencies, kept separate from part 1 to avoid clashes.
+# Used now (validation, offline, CI-safe):
+pyyaml
+jsonschema
+pytest
+
+# Added in later milestones (runner, judge, report, estimate):
+#   anthropic
+#   openai
+#   tiktoken
+#   pandas
+#   matplotlib
+#   tenacity

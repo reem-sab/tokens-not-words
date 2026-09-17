@@ -1,0 +1,12 @@
+- fact_id: f01
+  note: "Timeout is 30 seconds on Enterprise, the longest of the tiers."
+- fact_id: f02
+  note: "Retries are on by default on Enterprise; the lowest tier has them off."
+- fact_id: f03
+  note: "max_retries defaults to 10 on Enterprise, the highest of the tiers."
+- fact_id: f06
+  note: "Enterprise uses the X-Tarpon-Signature-V2 header, unlike the other tiers."
+- fact_id: f07
+  note: "Enterprise is the only tier with the dead-letter queue on by default."
+- fact_id: f08
+  note: "Maximum payload is 10 MB on Enterprise, the largest of the tiers."

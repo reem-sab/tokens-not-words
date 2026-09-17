@@ -1,0 +1,48 @@
+set_id: tarpon-webhook-tiers
+title: Tarpon webhook delivery (three tiers)
+description: >
+  A fictional placeholder set. Three service tiers of an invented product,
+  "Tarpon", whose webhook delivery configuration is similar but differs in
+  specific defaults. Loaded together, they test whether a model keeps the tiers
+  straight rather than blending their settings. Written for this repo to exercise
+  the schema and pipeline before a real set is chosen.
+covers: Webhook delivery configuration and its default values.
+how_members_differ: >
+  Each tier changes a set of defaults: per-attempt timeout, whether retries are on
+  by default, the default max_retries, dead-letter queue availability, maximum
+  payload size, and (on the top tier) the signature header name. Backoff and the
+  retry policy for status codes are the same across all tiers.
+
+members:
+  - id: tarpon-starter
+    title: Tarpon Starter
+    source_url: "fictional: written for tokens-not-words, no external source"
+    license: CC0-1.0
+    author: "tokens-not-words placeholder"
+    date_pulled: "2026-09-17"
+    notes: Fictional. Lowest tier. Retries off by default, no dead-letter queue.
+  - id: tarpon-team
+    title: Tarpon Team
+    source_url: "fictional: written for tokens-not-words, no external source"
+    license: CC0-1.0
+    author: "tokens-not-words placeholder"
+    date_pulled: "2026-09-17"
+    notes: Fictional. Middle tier. Retries on, dead-letter queue available but off.
+  - id: tarpon-enterprise
+    title: Tarpon Enterprise
+    source_url: "fictional: written for tokens-not-words, no external source"
+    license: CC0-1.0
+    author: "tokens-not-words placeholder"
+    date_pulled: "2026-09-17"
+    notes: Fictional. Top tier. Dead-letter queue on by default, distinct signature header.
+
+versions:
+  - name: original
+    description: >
+      Baseline docs as first written. Each tier is documented on its own, with no
+      explicit labels calling out which settings are tier-specific.
+  - name: differentiated
+    description: >
+      Each tier's distinguishing settings are labeled as tier-specific (for
+      example "Team default"). Same facts as the original; only the labeling
+      changes. It does not state any sibling tier's specific values.

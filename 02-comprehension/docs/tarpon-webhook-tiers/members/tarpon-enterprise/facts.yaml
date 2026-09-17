@@ -1,0 +1,16 @@
+- id: f01
+  fact: "The default per-attempt delivery timeout is 30 seconds."
+- id: f02
+  fact: "Retries are enabled by default."
+- id: f03
+  fact: "max_retries defaults to 10, counting attempts after the first."
+- id: f04
+  fact: "Backoff between retries is exponential, starting at 2 seconds."
+- id: f05
+  fact: "Only 5xx responses and timeouts are retried; a 4xx response is final and is never retried."
+- id: f06
+  fact: "Webhooks are signed with HMAC-SHA256, sent in the X-Tarpon-Signature-V2 header."
+- id: f07
+  fact: "A dead-letter queue is available and enabled by default. Exhausted messages are sent to it."
+- id: f08
+  fact: "The maximum webhook payload size is 10 MB."

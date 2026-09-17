@@ -1,0 +1,12 @@
+- fact_id: f01
+  note: "Timeout is 10 seconds on Starter, shorter than the other tiers."
+- fact_id: f02
+  note: "Retries are off by default on Starter; the higher tiers have them on."
+- fact_id: f03
+  note: "max_retries defaults to 3 on Starter, lower than the other tiers."
+- fact_id: f06
+  note: "Starter uses the X-Tarpon-Signature header (the top tier uses a different header)."
+- fact_id: f07
+  note: "Starter is the only tier with no dead-letter queue; messages are dropped."
+- fact_id: f08
+  note: "Maximum payload is 256 KB on Starter, the smallest of the tiers."

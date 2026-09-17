@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "paraphrases.yaml",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["question_id", "paraphrases"],
+    "properties": {
+      "question_id": { "type": "string", "pattern": "^q[0-9]{2,}$" },
+      "paraphrases": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "text", "source", "review_status"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^q[0-9]{2,}-p[0-9]{3,}$" },
+            "text": { "type": "string", "minLength": 1 },
+            "source": { "type": "string", "enum": ["human", "generated"] },
+            "review_status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+            "reviewed_by": { "type": ["string", "null"] },
+            "generation_prompt": { "type": "string" },
+            "generation_model": { "type": "string" }
+          },
+          "allOf": [
+            {
+              "if": { "properties": { "source": { "const": "generated" } } },
+              "then": { "required": ["generation_prompt", "generation_model"] }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

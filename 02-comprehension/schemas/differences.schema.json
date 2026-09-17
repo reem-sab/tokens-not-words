@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "differences.yaml",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["fact_id", "note"],
+    "properties": {
+      "fact_id": { "type": "string", "pattern": "^f[0-9]{2,}$" },
+      "note": { "type": "string", "minLength": 1 }
+    }
+  }
+}

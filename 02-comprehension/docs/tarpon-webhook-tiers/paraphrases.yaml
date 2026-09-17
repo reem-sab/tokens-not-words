@@ -1,0 +1,35 @@
+# Placeholder paraphrases. A real run targets hundreds per set; these few exist
+# to exercise the schema and the review workflow. Generated paraphrases stay
+# "pending" until a human approves them, and record their generation prompt and model.
+- question_id: q01
+  paraphrases:
+    - id: q01-p001
+      text: "In Tarpon Team, what does max_retries default to?"
+      source: human
+      review_status: approved
+      reviewed_by: "reem"
+    - id: q01-p002
+      text: "For the Team tier of Tarpon, how many retries are configured by default?"
+      source: human
+      review_status: approved
+      reviewed_by: "reem"
+    - id: q01-p003
+      text: "If I am on Tarpon Team and change nothing, what is the default max_retries setting?"
+      source: generated
+      review_status: pending
+      reviewed_by: null
+      generation_prompt: "Rewrite the question with the same meaning and the same correct answer, varying only the wording. Do not change which tier or setting is asked about."
+      generation_model: "placeholder-not-yet-run"
+
+- question_id: q03
+  paraphrases:
+    - id: q03-p001
+      text: "On the Enterprise tier of Tarpon, what is the name of the signature header?"
+      source: human
+      review_status: approved
+      reviewed_by: "reem"
+    - id: q03-p002
+      text: "Which header holds the webhook signature when using Tarpon Enterprise?"
+      source: human
+      review_status: approved
+      reviewed_by: "reem"
