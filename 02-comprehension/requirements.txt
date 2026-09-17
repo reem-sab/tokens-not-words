@@ -1,13 +1,15 @@
 # Part 2 dependencies, kept separate from part 1 to avoid clashes.
-# Used now (validation, offline, CI-safe):
+
+# Validation and pipeline (validation + tests run offline, no API key needed):
 pyyaml
 jsonschema
 pytest
 
-# Added in later milestones (runner, judge, report, estimate):
-#   anthropic
+# Runner and estimate (needed to run queries and count tokens against the API):
+anthropic          # Claude API + count_tokens
+tiktoken           # GPT-family token counts (used only when an OpenAI model is enabled)
+
+# Added in later milestones (judge, report):
 #   openai
-#   tiktoken
 #   pandas
 #   matplotlib
-#   tenacity

@@ -1,0 +1,46 @@
+# Models under test, with pricing used for cost estimates and logged costs.
+#
+# Pricing is Anthropic list price in USD per 1,000,000 tokens.
+# Source: https://www.anthropic.com/pricing (via the claude-api skill reference table).
+# pricing_date: 2026-06-24. VERIFY current pricing before any full or paid run (M4).
+#
+# Cache rates follow Anthropic's model: a cache write costs about 1.25x the input
+# rate, a cache read about 0.1x the input rate. They are written out here so cost
+# math is explicit and auditable.
+#
+# Model ids are exact and carry no date suffix (verified against the Anthropic
+# Python SDK reference). The original brief listed "claude-haiku-4-5-20251001";
+# the correct current id is "claude-haiku-4-5".
+
+pricing_date: "2026-06-24"
+pricing_source: "https://www.anthropic.com/pricing"
+
+models:
+  - id: claude-haiku-4-5
+    provider: anthropic
+    enabled: true
+    input_per_mtok: 1.00
+    output_per_mtok: 5.00
+    cache_write_per_mtok: 1.25   # ~1.25x input
+    cache_read_per_mtok: 0.10    # ~0.1x input
+
+  # Enabled at M4 once the model lineup, budget, and pricing are confirmed.
+  # - id: claude-sonnet-5
+  #   provider: anthropic
+  #   enabled: false
+  #   input_per_mtok: 2.00
+  #   output_per_mtok: 10.00
+  #   cache_write_per_mtok: 2.50
+  #   cache_read_per_mtok: 0.20
+  # - id: claude-opus-5
+  #   provider: anthropic
+  #   enabled: false
+  #   input_per_mtok: 5.00
+  #   output_per_mtok: 25.00
+  #   cache_write_per_mtok: 6.25
+  #   cache_read_per_mtok: 0.50
+  # - id: <current OpenAI model>   # check the OpenAI docs for the current id + pricing
+  #   provider: openai
+  #   enabled: false
+  #   input_per_mtok: null
+  #   output_per_mtok: null

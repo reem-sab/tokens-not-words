@@ -1,0 +1,32 @@
+# Run parameters. Kept small and explicit so a run is reproducible.
+
+# Sampling temperature. 0.0 keeps the smoke test deterministic. Raising it at M4
+# is how you make repetitions capture real variance. Always logged per call.
+temperature: 0.0
+
+# How many times each query is asked. With many paraphrases, 1 is a reasonable
+# default (consistency comes from paraphrase variety, not repetition). Configurable.
+repetitions: 1
+
+# Assumed output tokens per answer, used only for the dry-run cost estimate. The
+# answer is a short JSON object, so this is small. Logged costs use real token counts.
+assumed_output_tokens: 80
+
+# Max tokens for the model's reply. The answer is a short JSON object.
+max_tokens: 256
+
+# Default version and models for a run when not overridden on the command line.
+default_version: original
+default_models:
+  - claude-haiku-4-5
+
+# Fraction of queries to run in sample mode (1.0 = all, 0.1 = 10%). Overridden by
+# --sample on the command line.
+sample_fraction: 1.0
+
+# Budget ceiling in USD for a full run. Decided at M4. When set, estimate.py and
+# run.py refuse to run above it without explicit confirmation. null = not yet set.
+budget_ceiling_usd: null
+
+# Judge model. Decided at M4. Used by judge.py in a later milestone. null = not set.
+judge_model: null
