@@ -1,40 +1,37 @@
-# Tokens, not words: what your writing costs an AI to read
+# Tokens, not words
 
-Most of what we write is increasingly read by machines, not people. In my last role, docs analytics showed **~60% of traffic was automated** — LLM crawlers and agents, not humans. Those readers don't count words. They count **tokens**, and tokens cost money and time.
+Most of what we write is now read by machines as often as people. This repo is a
+series of small, reproducible experiments about what that means for anyone who
+writes for a living. Each part measures one thing, with code you can run yourself
+and data you can check.
 
-This notebook measures that, live — with the correct tokenizer per model, a real cost-vs-quality comparison across Claude tiers, a prompt-caching demo, and a reusable calculator.
+A token is the unit a language model reads in, roughly a short chunk of a word.
+Everything here starts from that idea and builds out.
 
-## Key findings (all computed in-notebook)
+## The series
 
-- **Tokenizers disagree:** the same paragraph was 46 tokens for GPT vs 77 for Claude — so you can never price one model with another's counts.
-- **Formatting isn't free:** JSON and code cost ~3× and ~1.7× more per word than prose.
-- **A whole novel:** it costs Claude about **$0.51** to read the entire text of *Pride and Prejudice* (~253k tokens).
-- **Prompt caching:** a repeated read dropped from **$0.63 → $0.05 (~12× cheaper)** in three lines.
+**Part 1: Cost.** What does your writing cost a machine to read? A notebook that
+counts tokens across formats, compares the price of the same text across models,
+and shows how prompt caching (reusing an already-read document) can cut a
+repeated read by about 12 times. It computes, live, that it costs roughly 51
+cents for a model to read all of *Pride and Prejudice*.
+See [`01-cost/`](01-cost/).
 
-## What's inside
+**Part 2: Comprehension.** If the facts stay the same and only the writing
+changes, do a model's answers get more accurate? An open test that rewrites the
+same document for clarity and measures whether the model understands it better.
+In progress. It will live under `02-comprehension/`.
 
-`tokens-not-words.ipynb` — a self-contained Deepnote notebook:
+**Later parts.** Findability (can a retrieval system even surface your writing?)
+and actionability (can an agent follow it?). Planned, not started.
 
-1. Tokens vs words on a small corpus (prose / table / JSON / code)
-2. SQL aggregation over the results
-3. Exact Claude token counts + per-model cost
-4. A live cost / latency / quality comparison across Claude Haiku 4.5, Sonnet 5, and Opus 5
-5. The "cost to read a novel" hook (public-domain text)
-6. A prompt-caching demo and a reusable cost calculator
+## Who this is for
 
-## Run it
+Technical writers, content designers, and anyone curious about how AI reads what
+we publish. Part 2 is built to be contributed to, including by writers who rarely
+touch code. If you want to help measure this at scale, start with the part 2
+README.
 
-```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY=sk-ant-...   # or set it as a Deepnote secret
-```
+## License
 
-Then run the notebook top to bottom.
-
-## Accuracy notes
-
-- Claude token counts use **Anthropic's `count_tokens` API**; `tiktoken` is used only for the GPT-family tokenizer and the concept — the two tokenizers do not match.
-- Pricing is Anthropic list price **as of 2026-06-24** — verify current before reuse.
-- Novel text: *Pride and Prejudice*, Project Gutenberg #1342 (public domain).
-
-Built in [Deepnote](https://deepnote.com).
+MIT. See [`LICENSE`](LICENSE).
